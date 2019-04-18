@@ -51,7 +51,7 @@ When the backward pass eventually reaches layer `l`, which computes `C_l = X_l W
 
 Since the layer is just a linear function, the formula to compute the derivative with respect to `W_l` is simply `X_l^T G_l`, and this is where the summation/averaging over samples takes place.
 
-If `X_l^T` is a `[D_l x N]` matrix and `G_l` is a `[N x D_{l+1}]` matrix, the result is `[D_l x D_{l+1}]` (the size of `C_l`), and has been summed up over the `N` dimension.
+If `X_l^T` is a `[D_l x N]` matrix and `G_l` is a `[N x D_{l+1}]` matrix, the result is `[D_l x D_{l+1}]` (the size of `W_l`), and has been summed up over the `N` dimension.
 
 To get the individual gradient for the `n`th sample, we would need to compute the outer product `X_l[n,:] G_l[n,:]^\top`.
 
